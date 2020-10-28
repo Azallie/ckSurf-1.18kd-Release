@@ -32,7 +32,7 @@ public void OnPluginStart()
 		SetFailState("This plugin is for CSGO/CSS only.");	
 	}
 	
-	RegAdminCmd("sm_cktele", TeleToInfo, ADMFLAG_ROOT, "[ckSurf] Teleport client to a teleport destination in the map");
+	RegAdminCmd("sm_cktele", TeleToInfo, ADMFLAG_CHEATS, "[ckSurf] Teleport client to a teleport destination in the map");
 
 }
 
