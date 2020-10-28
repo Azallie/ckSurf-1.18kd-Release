@@ -1847,7 +1847,7 @@ public void OnSettingChanged(Handle convar, const char[] oldValue, const char[] 
 		if (!validFlag)
 		{
 			PrintToServer("[ckSurf] Invalid flag for ck_zonemenu_flag");
-			g_ZoneMenuFlag = ADMFLAG_ROOT;
+			g_ZoneMenuFlag = ADMFLAG_CHEATS;
 		}
 		else
 			g_ZoneMenuFlag = FlagToBit(flag);
@@ -2108,7 +2108,7 @@ public void OnPluginStart()
 	if (!validFlag)
 	{
 		PrintToServer("[ckSurf] Invalid flag for ck_zonemenu_flag.");
-		g_ZoneMenuFlag = ADMFLAG_ROOT;
+		g_ZoneMenuFlag = ADMFLAG_CHEATS;
 	}
 	else
 		g_ZoneMenuFlag = FlagToBit(bufferFlag);
@@ -2221,32 +2221,32 @@ public void OnPluginStart()
 	RegConsoleCmd("sm_normal", Command_normalMode, "[ckSurf] Switches player back to normal mode.");
 	RegConsoleCmd("sm_n", Command_normalMode, "[ckSurf] Switches player back to normal mode.");
 	
-	RegAdminCmd("sm_ckadmin", Admin_ckPanel, g_AdminMenuFlag, "[ckSurf] Displays the ckSurf menu panel");
-	RegAdminCmd("sm_refreshprofile", Admin_RefreshProfile, g_AdminMenuFlag, "[ckSurf] Recalculates player profile for given steam id");
-	RegAdminCmd("sm_resetchallenges", Admin_DropChallenges, ADMFLAG_ROOT, "[ckSurf] Resets all player challenges (drops table challenges) - requires z flag");
-	RegAdminCmd("sm_resettimes", Admin_DropAllMapRecords, ADMFLAG_ROOT, "[ckSurf] Resets all player times (drops table playertimes) - requires z flag");
-	RegAdminCmd("sm_resetranks", Admin_DropPlayerRanks, ADMFLAG_ROOT, "[ckSurf] Resets the all player points  (drops table playerrank - requires z flag)");
-	RegAdminCmd("sm_resetmaptimes", Admin_ResetMapRecords, ADMFLAG_ROOT, "[ckSurf] Resets player times for given map - requires z flag");
-	RegAdminCmd("sm_resetplayerchallenges", Admin_ResetChallenges, ADMFLAG_ROOT, "[ckSurf] Resets (won) challenges for given steamid - requires z flag");
-	RegAdminCmd("sm_resetplayertimes", Admin_ResetRecords, ADMFLAG_ROOT, "[ckSurf] Resets pro map times (+extrapoints) for given steamid with or without given map - requires z flag");
-	RegAdminCmd("sm_resetplayermaptime", Admin_ResetMapRecord, ADMFLAG_ROOT, "[ckSurf] Resets pro map time for given steamid and map - requires z flag");
-	RegAdminCmd("sm_deleteproreplay", Admin_DeleteMapReplay, ADMFLAG_ROOT, "[ckSurf] Deletes pro replay for a given map - requires z flag");
-	RegAdminCmd("sm_resetextrapoints", Admin_ResetExtraPoints, ADMFLAG_ROOT, "[ckSurf] Resets given extra points for all players with or without given steamid");
-	RegAdminCmd("sm_deletecheckpoints", Admin_DeleteCheckpoints, ADMFLAG_ROOT, "[ckSurf] Reset checkpoints on the current map");
-	RegAdminCmd("sm_insertmaptiers", Admin_InsertMapTiers, ADMFLAG_ROOT, "[ckSurf] Insert premade maptier information into the database (ONLY RUN THIS ONCE)");
-	RegAdminCmd("sm_insertmapzones", Admin_InsertMapZones, ADMFLAG_ROOT, "[ckSurf] Insert premade map zones into the database (ONLY RUN THIS ONCE)");
-	RegAdminCmd("sm_zones", Command_Zones, g_ZoneMenuFlag, "[ckSurf] Opens up the zone creation menu.");
-	RegAdminCmd("sm_admintitles", Admin_giveTitle, ADMFLAG_ROOT, "[ckSurf] Gives a player a title");
-	RegAdminCmd("sm_admintitle", Admin_giveTitle, ADMFLAG_ROOT, "[ckSurf] Gives a player a title");
-	RegAdminCmd("sm_givetitle", Admin_giveTitle, ADMFLAG_ROOT, "[ckSurf] Gives a player a title");
-	RegAdminCmd("sm_removetitles", Admin_deleteTitles, ADMFLAG_ROOT, "[ckSurf] Removes player's all titles");
-	RegAdminCmd("sm_removetitle", Admin_deleteTitle, ADMFLAG_ROOT, "[ckSurf] Removes specific title from a player");
+	RegAdminCmd("sm_ckadmin", Admin_ckPanel, ADMFLAG_CHEATS, "[ckSurf] Displays the ckSurf menu panel");
+	RegAdminCmd("sm_refreshprofile", Admin_RefreshProfile, ADMFLAG_CHEATS, "[ckSurf] Recalculates player profile for given steam id");
+	RegAdminCmd("sm_resetchallenges", Admin_DropChallenges, ADMFLAG_CHEATS, "[ckSurf] Resets all player challenges (drops table challenges) - requires z flag");
+	RegAdminCmd("sm_resettimes", Admin_DropAllMapRecords, ADMFLAG_CHEATS, "[ckSurf] Resets all player times (drops table playertimes) - requires z flag");
+	RegAdminCmd("sm_resetranks", Admin_DropPlayerRanks, ADMFLAG_CHEATS, "[ckSurf] Resets the all player points  (drops table playerrank - requires z flag)");
+	RegAdminCmd("sm_resetmaptimes", Admin_ResetMapRecords, ADMFLAG_CHEATS, "[ckSurf] Resets player times for given map - requires z flag");
+	RegAdminCmd("sm_resetplayerchallenges", Admin_ResetChallenges, ADMFLAG_CHEATS, "[ckSurf] Resets (won) challenges for given steamid - requires z flag");
+	RegAdminCmd("sm_resetplayertimes", Admin_ResetRecords, ADMFLAG_CHEATS, "[ckSurf] Resets pro map times (+extrapoints) for given steamid with or without given map - requires z flag");
+	RegAdminCmd("sm_resetplayermaptime", Admin_ResetMapRecord, ADMFLAG_CHEATS, "[ckSurf] Resets pro map time for given steamid and map - requires z flag");
+	RegAdminCmd("sm_deleteproreplay", Admin_DeleteMapReplay, ADMFLAG_CHEATS, "[ckSurf] Deletes pro replay for a given map - requires z flag");
+	RegAdminCmd("sm_resetextrapoints", Admin_ResetExtraPoints, ADMFLAG_CHEATS, "[ckSurf] Resets given extra points for all players with or without given steamid");
+	RegAdminCmd("sm_deletecheckpoints", Admin_DeleteCheckpoints, ADMFLAG_CHEATS, "[ckSurf] Reset checkpoints on the current map");
+	RegAdminCmd("sm_insertmaptiers", Admin_InsertMapTiers, ADMFLAG_CHEATS, "[ckSurf] Insert premade maptier information into the database (ONLY RUN THIS ONCE)");
+	RegAdminCmd("sm_insertmapzones", Admin_InsertMapZones, ADMFLAG_CHEATS, "[ckSurf] Insert premade map zones into the database (ONLY RUN THIS ONCE)");
+	RegAdminCmd("sm_zones", Command_Zones, ADMFLAG_CHEATS, "[ckSurf] Opens up the zone creation menu.");
+	RegAdminCmd("sm_admintitles", Admin_giveTitle, ADMFLAG_SLAY, "[ckSurf] Gives a player a title");
+	RegAdminCmd("sm_admintitle", Admin_giveTitle, ADMFLAG_SLAY, "[ckSurf] Gives a player a title");
+	RegAdminCmd("sm_givetitle", Admin_giveTitle, ADMFLAG_SLAY, "[ckSurf] Gives a player a title");
+	RegAdminCmd("sm_removetitles", Admin_deleteTitles, ADMFLAG_SLAY, "[ckSurf] Removes player's all titles");
+	RegAdminCmd("sm_removetitle", Admin_deleteTitle, ADMFLAG_SLAY, "[ckSurf] Removes specific title from a player");
 	
-	RegAdminCmd("sm_addmaptier", Admin_insertMapTier, g_AdminMenuFlag, "[ckSurf] Changes maps tier");
-	RegAdminCmd("sm_amt", Admin_insertMapTier, g_AdminMenuFlag, "[ckSurf] Changes maps tier");
-	RegAdminCmd("sm_addspawn", Admin_insertSpawnLocation, g_AdminMenuFlag, "[ckSurf] Changes the position !r takes players to");
-	RegAdminCmd("sm_delspawn", Admin_deleteSpawnLocation, g_AdminMenuFlag, "[ckSurf] Removes custom !r position");
-	RegAdminCmd("sm_clearassists", Admin_ClearAssists, g_AdminMenuFlag, "[ckSurf] Clears assist points (map progress) from all players");
+	RegAdminCmd("sm_addmaptier", Admin_insertMapTier, ADMFLAG_CHEATS, "[ckSurf] Changes maps tier");
+	RegAdminCmd("sm_amt", Admin_insertMapTier, ADMFLAG_CHEATS, "[ckSurf] Changes maps tier");
+	RegAdminCmd("sm_addspawn", Admin_insertSpawnLocation, ADMFLAG_CHEATS, "[ckSurf] Changes the position !r takes players to");
+	RegAdminCmd("sm_delspawn", Admin_deleteSpawnLocation, ADMFLAG_CHEATS, "[ckSurf] Removes custom !r position");
+	RegAdminCmd("sm_clearassists", Admin_ClearAssists, ADMFLAG_CHEATS, "[ckSurf] Clears assist points (map progress) from all players");
 	
 	// Discord
 	RegConsoleCmd("sm_bug", Command_Bug, "[ckSurf] report a bug to our discord");
